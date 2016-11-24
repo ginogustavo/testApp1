@@ -7,17 +7,26 @@
 </head>
 <body>
 	<h1>Pet list</h1>
-
-
 	<table>
-
 		<tr th:each="pet : ${pets}">
 			<td th:text="${pet.name}">Name</td>
 			<td th:text="${pet.owner}">Owner</td>
 			<td th:text="${pet.birth}">Birth</td>
 		</tr>
-
 	</table>
+
+
+	<h1>Enter your pet info</h1>
+
+	<form action="#" th:action="@{/}" th:object="${cat}" method="post">
+		<p>Name: <input type="text" th:field="*{name}" /></p>
+		<p>Owner: <input type="text" th:field="*{owner}" /></p>
+<!-- 		<p>Birth: <input type="text" th:field="*{birth}" /></p> -->
+		<p>
+		<input type="submit" value="Submit" /> 
+		<input type="reset" value="Reset" />
+		</p>
+	</form>
 
 </body>
 </html>
