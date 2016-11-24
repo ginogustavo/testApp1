@@ -14,9 +14,11 @@ public class MVC_Config extends WebMvcConfigurerAdapter {
 
 	@Override // This method allows to associate Views with URLs
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/land").setViewName("landing");
-		// if something call land go to landing
 
-		// registry.addViewController("/login").setViewName("hi");
+		// if something call land go to landing
+		registry.addViewController("/land").setViewName("landing");
+		registry.addViewController("/admin").setViewName("administration");
+		registry.addViewController("/login").setViewName("login");
+		
 	}
 }

@@ -19,14 +19,22 @@
 	<h1>Enter your pet info</h1>
 
 	<form action="#" th:action="@{/}" th:object="${cat}" method="post">
-		<p>Name: <input type="text" th:field="*{name}" /></p>
-		<p>Owner: <input type="text" th:field="*{owner}" /></p>
-<!-- 		<p>Birth: <input type="text" th:field="*{birth}" /></p> -->
 		<p>
-		<input type="submit" value="Submit" /> 
-		<input type="reset" value="Reset" />
+			Name: <input type="text" th:field="*{name}" />
+		</p>
+		<p>
+			Owner: <input type="text" th:field="*{owner}" />
+		</p>
+		<!-- 		<p>Birth: <input type="text" th:field="*{birth}" /></p> -->
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
 		</p>
 	</form>
+
+	<p>
+		<a th:href="@{/admin}">Go to Administrative page</a>
+	</p>
 
 </body>
 </html>
