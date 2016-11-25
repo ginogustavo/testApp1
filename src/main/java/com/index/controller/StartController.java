@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ public class StartController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	// --> it associate to an URL, the root.
+	@Transactional(readOnly=true)
 	public String landing(Model model) {
 		List<Cat> petList = (List<Cat>) catRepo.findAll();
 		model.addAttribute("pets", petList);

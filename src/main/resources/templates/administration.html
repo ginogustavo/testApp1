@@ -7,7 +7,24 @@
 </head>
 <body>
 
-	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!. You can now administer Pets here.</h1>
+	
+	
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Owner</th>
+			<th>Birth</th>
+			<th>Actions</th>
+		</tr>
+		<tr th:each="pet : ${pets}">
+			<td th:text="${pet.name}">Name</td>
+			<td th:text="${pet.owner}">Owner</td>
+			<td th:text="${pet.birth}">Birth</td>
+			<td><a th:href="@{/admin/{id}(id=${pet.id})}"><span>Delete</span></a></td>
+		</tr>
+	</table>
+	
 	<form th:action="@{/logout}" method="post">
 		<input type="submit" value="Sign Out" />
 	</form>
